@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Der Gute Mann von Sezuan</title>
+    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@^3.2.0/dist/aframe-animation-component.min.js"></script>
+    <script src="js/aframe-component.js"></script>
+    <script src="js/StereoEffect.js"></script>
+    <script src="js/DeviceOrientationControls.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="https://rawgit.com/oscarmarinmiro/aframe-video-controls/master/dist/aframe-video-controls.min.js"></script>
+    <script src="js/Video.js"></script>
+</head>
+
+<body>
+
+<a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+
+    <!--Skybox-->
+    <a-sky src="Pics/Skybox.png"></a-sky>
+
+    <a-assets>
+
+        <!--Bühne-->
+        <img id="my-image" src="Pics/buehne.jpeg"/>
+        <img id="boden" src="Pics/Bachlauf.jpg"/>
+
+        <!--Lakitu-->
+        <a-asset-item id="Lak-obj" src="Objekte/Lakitu.obj"></a-asset-item>
+        <a-asset-item id="Lak-mtl" src="Objekte/Lakitu.mtl"></a-asset-item>
+        <!--Mario-->
+        <a-asset-item id="Mar-obj" src="Objekte/Mario2.obj"></a-asset-item>
+        <a-asset-item id="Mar-mtl" src="Objekte/Mario2.mtl"></a-asset-item>
+        <!--Luigi-->
+        <a-asset-item id="Lui-obj" src="Objekte/Luigi.obj"></a-asset-item>
+        <a-asset-item id="Lui-mtl" src="Objekte/Luigi.mtl"></a-asset-item>
+        <!--Wario-->
+        <a-asset-item id="War-obj" src="Objekte/Wario.obj"></a-asset-item>
+        <a-asset-item id="War-mtl" src="Objekte/Wario.mtl"></a-asset-item>
+        <!--Yoshi-->
+        <a-asset-item id="Yos-obj" src="Objekte/Yoshi.obj"></a-asset-item>
+        <a-asset-item id="Yos-mtl" src="Objekte/Yoshi.mtl"></a-asset-item>
+        <!--Brücke-->
+        <a-asset-item id="Bri-obj" src="Objekte/Bruecke.obj"></a-asset-item>
+        <a-asset-item id="Bri-mtl" src="Objekte/Bruecke.mtl"></a-asset-item>
+        <!--Baum-->
+        <a-asset-item id="Tre-obj" src="Objekte/Tree/Tree.obj"></a-asset-item>
+        <a-asset-item id="Tre-mtl" src="Objekte/Tree/Tree.mtl"></a-asset-item>
+
+    <!--Video-->
+    <video id="textvideo" autoplay="true" crossorigin preload loop="true" src="Video/text.webm" timeout="5000"></video>
+    </a-assets>
+    <!--Boden-->
+    <a-image src="#boden"
+             material="color:#FFF;shader:flat;side:double;transparent:true;src:#boden"
+             geometry="primitive:plane"
+             position="0.02 0.01 -0.18"
+             rotation="-90 0 0"
+             scale="60.07 59.54 45.15"></a-image>
+<!--Bäume-->
+    <a-entity obj-model="obj:#Tre-obj;mtl:#Tre-mtl" position="-11.82 0 7.67" rotation="0 0 0" scale="0.32 0.32 0.32" visible="true" material=""></a-entity>
+    <a-entity obj-model="obj:#Tre-obj;mtl:#Tre-mtl" position="-8.4 0 7.15" rotation="0 0 0" scale="0.28 0.28 0.28" visible="true" material=""></a-entity>
+    <a-entity obj-model="obj:#Tre-obj;mtl:#Tre-mtl" position="0 0 9.79" scale="0.2 0.2 0.2" material=""></a-entity>
+    <a-entity obj-model="obj:#Tre-obj;mtl:#Tre-mtl" position="1.47 0 8.45" rotation="0 0 0" scale="0.24 0.24 0.24" visible="true" material=""></a-entity>
+    <a-entity obj-model="obj:#Tre-obj;mtl:#Tre-mtl" position="3.05 0 8.76" rotation="0 0 0" scale="0.24 0.24 0.24" visible="true" material=""></a-entity>
+
+    <a-entity camera
+                  wasd-controls="true"
+                  look-controls=""
+                  kinematic-body position="21.19 3.20 24.93"
+                    kinematic-body rotation="-1.72 17.76 0">
+            <a-entity id="cursor"
+                      cursor="fuse: true; fuseTimeout:2500"
+                      position="0 0 -1"
+                      geometry="primitive: ring"
+                      scale="0.04 0.04 0.04"
+                      material="color: white">
+                <!-- on .clickable"-->
+                <a-animation begin="clickableFound" easing="ease-in" attribute="scale"
+                             fill="backwards" from="0.04 0.04 0.04" to="0.01 0.01 0.01" dur="2500"></a-animation>
+                <a-animation begin="clickableClick" easing="ease-in" attribute="scale"
+                             fill="forwards" from="0.01 0.01 0.01" to="0.06 0.06 0.06" dur="1000"></a-animation>
+                <a-animation begin="clickableClick" easing="ease-in" attribute="material.color" to="black"></a-animation>
+                <a-animation begin="notClickable" easing="ease-in" attribute="scale"
+                             fill="forwards" to="0.04 0.04 0.04"></a-animation>
+                <a-animation begin="clickableClick" easing="ease-in" attribute="material.color" to="white" delay="1000"></a-animation>
+            </a-entity>
+        </a-entity>
+        </a-entity>
+
+    <a-entity obj-model="obj:#Bri-obj;mtl:#Bri-mtl" position="15.13 3.53 4.43" rotation="0 -5.729577951308233 0" scale="0.24 0.24 0.24" material=""></a-entity>
+    <a-entity obj-model="obj:#Lak-obj;mtl:#Lak-mtl"
+              position="-1.44 -0.05 13.49"
+              animation__yoyo="property:position;dir:alternate;dur:1000;easing:easeInSine;loop:true;to:-1.44 0.5 13.49">
+
+    </a-entity>
+    <a-entity obj-model="obj:#Lui-obj;mtl:#Lui-mtl"
+              scale="0.17 0.17 0.17"
+              position="2.73 4.78 4.02"
+              rotation="0 82.50592249883854 0"
+              material="">
+        <a-animation attribute="position" begin="10000" to="24.67 0.25 4.63" dur="15000" fill="forwards"></a-animation>
+        <a-animation attribute="rotation" begin="20000" to="0 -10.31 0" dur="3000" fill="forwards"></a-animation>
+        <a-animation attribute="position" begin="21000" from="24.67 0.25 4.63" to="24.67 0.25 11.15" dur="6000" fill="forwards"></a-animation>
+        <a-animation attribute="rotation" begin="25000" from="0 -10.31 0" to="0 -106.57 0" dur="5000" fill="forwards"></a-animation>
+        <a-animation attribute="position" begin="28000" from="24.67 0.25 11.15" to="15.40 0 11.53" dur="6000" fill="forwards"></a-animation>
+    </a-entity>
+    </a-entity>
+    <a-entity obj-model="obj:#Mar-obj;mtl:#Mar-mtl" scale="0.17 0.17 0.17" position="-5.75 7.02 4.42"rotation="0 112.87268564077218 0"
+              material="">
+              <a-animation attribute="position" begin="10000" to="22.50 0 7.37" dur="15000" fill="forwards"></a-animation>
+              <a-animation attribute="rotation" begin="20000" to="0 30.37 0" dur="3000" fill="forwards"></a-animation>
+              <a-animation attribute="position" begin="21000" from="22.50 0 7.37" to="22.50 0 12.77" dur="6000" fill="forwards"></a-animation>
+              <a-animation attribute="rotation" begin="25000" from="0 30.37 0" to="0 -48.70 0" dur="5000" fill="forwards"></a-animation>
+              <a-animation attribute="position" begin="28000" from="22.50 0 12.77" to="13.61 0 12.25" dur="6000" fill="forwards"></a-animation>
+    </a-entity>
+    </a-entity>
+    <a-entity obj-model="obj:#War-obj;mtl:#War-mtl"
+              position="-5.59 7.29 1.78"
+              scale="0.17 0.17 0.17"
+              material="">
+                <a-animation attribute="position" begin="10000" to="23.82 0.75 5.95" dur="15000" fill="forwards"></a-animation>
+                <a-animation attribute="rotation" begin="20000" to="4.01 -18.91 -4.01" dur="3000" fill="forwards"></a-animation>
+                <a-animation attribute="position" begin="21000" from="23.82 0.75 5.95" to="26.13 0.75 13.63" dur="6000" fill="forwards"></a-animation>
+                <a-animation attribute="rotation" begin="25000" from="4.01 -18.91 -4.01" to="4.01 -112.30 -4.01" dur="5000" fill="forwards"></a-animation>
+                <a-animation attribute="position" begin="28000" from="26.13 0.75 13.63" to="18.68 0.02 13.63" dur="6000" fill="forwards"></a-animation>
+    </a-entity>
+    <a-entity obj-model="obj:#Yos-obj;mtl:#Yos-mtl"
+              position="9.89 0 10.66"
+              rotation="0 21.772396214971284 0"
+              scale="0.13 0.13 0.13"
+              material="">
+            <a-animation attribute="position" begin="32000" to="9.89 0.48 10.66" dur="200" fill="backwards"></a-animation>
+    </a-entity>
+
+    <a-video src="#textvideo"
+             opacity="1"
+             width="16"
+             height="9"
+             position="21.09 7.85 12.55"
+             material="color:#FFF;shader:flat;side:double;transparent:true;src:#textvideo;opacity:1"
+             geometry="primitive:plane;width:16;height:9"
+             scale="0.71 0.71 0.71"
+             rotation="0 0 0"></a-video>
+
+        <!--Licht
+        <a-entity light="color:#BBB;type:ambient" data-aframe-default-light="" aframe-injected="" position="0 0 0"></a-entity>
+        <a-entity light="color:#FFF;intensity:0.6" position="-0.5 1 1" data-aframe-default-light="" aframe-injected="" scale="1 1 1"></a-entity>
+        <a-entity light="color:#BBB;type:ambient" data-aframe-default-light="" aframe-injected=""></a-entity>
+        <a-entity light="color:#FFF;intensity:0.6" position="-0.5 1 1" data-aframe-default-light="" aframe-injected=""></a-entity>
+        -->
+        <!--<a-animation attribute="scale" begin="10000" to="0.65 0.65 0.65"></a-animation>-->
+        <!--<a-animation attribute="position" begin="3000" to="5.36 0 4.07"></a-animation>-->
+        <!--<a-animation attribute="position" begin="3000" to="5.36 0 4.07"></a-animation>-->
+        <!--<a-animation attribute="scale" begin="10000" to="0.65 0.65 0.65"></a-animation>-->
+        <!--<a-animation attribute="position" begin="3000" to="3.17 0 4.48"></a-animation>-->
+        <!--<a-animation attribute="position" begin="3000" to="3.17 0 4.48"></a-animation>-->
+        <!--<a-animation attribute="position" begin="3000" to="4.14 0 3.00"></a-animation>-->
+        <!--<a-animation attribute="position" begin="3000" to="4.14 0 3.00"></a-animation>-->
+
+
+        <!--Licht
+        <a-entity light="color:#BBB;type:ambient" data-aframe-default-light="" aframe-injected="" position="0 0 0"></a-entity>
+        <a-entity light="color:#FFF;intensity:0.6" position="-0.5 1 1" data-aframe-default-light="" aframe-injected="" scale="1 1 1"></a-entity>
+        <a-entity light="color:#BBB;type:ambient" data-aframe-default-light="" aframe-injected=""></a-entity>
+        <a-entity light="color:#FFF;intensity:0.6" position="-0.5 1 1" data-aframe-default-light="" aframe-injected=""></a-entity>
+        -->
+        <!--<a-animation attribute="scale" begin="10000" to="0.65 0.65 0.65"></a-animation>-->
+        <!--<a-animation attribute="position" begin="3000" to="5.36 0 4.07"></a-animation>-->
+        <!--<a-animation attribute="position" begin="3000" to="5.36 0 4.07"></a-animation>-->
+        <!--<a-animation attribute="scale" begin="10000" to="0.65 0.65 0.65"></a-animation>-->
+        <!--<a-animation attribute="position" begin="3000" to="3.17 0 4.48"></a-animation>-->
+        <!--<a-animation attribute="position" begin="3000" to="3.17 0 4.48"></a-animation>-->
+        <!--<a-animation attribute="position" begin="3000" to="4.14 0 3.00"></a-animation>-->
+        <!--<a-animation attribute="position" begin="3000" to="4.14 0 3.00"></a-animation>-->
+
+    <!--Licht
+    <a-entity light="color:#BBB;type:ambient" data-aframe-default-light="" aframe-injected="" position="0 0 0"></a-entity>
+    <a-entity light="color:#FFF;intensity:0.6" position="-0.5 1 1" data-aframe-default-light="" aframe-injected="" scale="1 1 1"></a-entity>
+    <a-entity light="color:#BBB;type:ambient" data-aframe-default-light="" aframe-injected=""></a-entity>
+    <a-entity light="color:#FFF;intensity:0.6" position="-0.5 1 1" data-aframe-default-light="" aframe-injected=""></a-entity>
+    -->
+    <!--<a-animation attribute="scale" begin="10000" to="0.65 0.65 0.65"></a-animation>-->
+    <!--<a-animation attribute="position" begin="3000" to="5.36 0 4.07"></a-animation>-->
+    <!--<a-animation attribute="position" begin="3000" to="5.36 0 4.07"></a-animation>-->
+    <!--<a-animation attribute="scale" begin="10000" to="0.65 0.65 0.65"></a-animation>-->
+    <!--<a-animation attribute="position" begin="3000" to="3.17 0 4.48"></a-animation>-->
+    <!--<a-animation attribute="position" begin="3000" to="3.17 0 4.48"></a-animation>-->
+    <!--<a-animation attribute="position" begin="3000" to="4.14 0 3.00"></a-animation>-->
+    <!--<a-animation attribute="position" begin="3000" to="4.14 0 3.00"></a-animation>-->
+</a-scene>
+
+
+
+</body>
+
+
+</html>

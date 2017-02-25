@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Der Gute Mann von Sezuan</title>
+    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+</head>
+
+<body>
+
+<a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
+
+
+<a-assets>
+    <!--Lakitu-->
+    <a-asset-item id="Lak-obj" src="Objekte/Lakitu.obj"></a-asset-item>
+    <a-asset-item id="Lak-mtl" src="Objekte/Lakitu.mtl"></a-asset-item>
+    <!--Mario-->
+    <a-asset-item id="Mar-obj" src="Objekte/Mario2.obj"></a-asset-item>
+    <a-asset-item id="Mar-mtl" src="Objekte/Mario2.mtl"></a-asset-item>
+    <!--Luigi-->
+    <a-asset-item id="Lui-obj" src="Objekte/Luigi.obj"></a-asset-item>
+    <a-asset-item id="Lui-mtl" src="Objekte/Luigi.mtl"></a-asset-item>
+    <!--Test-->
+    <a-asset-item id="War-obj" src="Objekte/Wario.obj"></a-asset-item>
+    <a-asset-item id="War-mtl" src="Objekte/Wario.mtl"></a-asset-item>
+    <!--Yoshi-->
+    <a-asset-item id="Yos-obj" src="Objekte/Yoshi.obj"></a-asset-item>
+    <a-asset-item id="Yos-mtl" src="Objekte/Yoshi.mtl"></a-asset-item>
+</a-assets>
+
+<a-entity obj-model="obj: #Lak-obj; mtl: #Lak-mtl"></a-entity>
+<a-entity obj-model="obj:#Lui-obj;mtl:#Lui-mtl" scale="0.12 0.12 0.12" material=""></a-entity>
+<a-entity obj-model="obj:#Mar-obj;mtl:#Mar-mtl" scale="0.12 0.12 0.12" material="" position="-1.48 0 0"></a-entity>
+<a-entity obj-model="obj:#War-obj;mtl:#War-mtl" position="1.41 0 0.3" scale="0.14 0.14 0.14" material=""></a-entity>
+<a-entity obj-model="obj:#Yos-obj;mtl:#Yos-mtl" position="-3.74 0 0" scale="0.16 0.16 0.16" material=""></a-entity>
+
+</a-scene>
+
+
+
+</body>
+
+
+</html>

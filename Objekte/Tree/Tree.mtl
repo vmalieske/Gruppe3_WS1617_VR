@@ -1,0 +1,44 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 25.02.2017 20:15:11
+
+newmtl leaf
+	Ns 40.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0196 0.5255 0.0196
+	Ks 0.3490 0.3490 0.3490
+	Ke 0.0000 0.0000 0.0000
+	map_Ka iTrees_Leaf_Chestnut_AU_002.jpg
+	map_Kd iTrees_Leaf_Chestnut_AU_002.jpg
+
+newmtl bark_old
+	Ns 40.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0196 0.5255 0.0196
+	Ks 0.3490 0.3490 0.3490
+	Ke 0.0000 0.0000 0.0000
+	map_Ka iTrees_02_Bark_MapleOld_01.jpg
+	map_Kd iTrees_02_Bark_MapleOld_01.jpg
+
+newmtl bark_young
+	Ns 40.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0196 0.5255 0.0196
+	Ks 0.3490 0.3490 0.3490
+	Ke 0.0000 0.0000 0.0000
+	map_Ka iTrees_02_Bark_MapleYng_01.jpg
+	map_Kd iTrees_02_Bark_MapleYng_01.jpg

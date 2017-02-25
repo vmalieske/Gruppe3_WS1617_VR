@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <title>Der Gute Mensch von Sezuan</title>
+
+    <script src="js/aframe-component.js"></script>
+    <script src="js/three.js"></script>
+    <script src="js/StereoEffect.js"></script>
+    <script src="js/DeviceOrientationControls.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@^3.2.0/dist/aframe-animation-component.min.js"></script>
+    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+    <script src="TestVideo.js"></script>
+
+</head>
+
+<body>
+
+<a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js" timeout="50000">
+
+
+
+    <a-sky src="Pics/Skybox.png"></a-sky>
+
+
+
+    <a-assets>
+
+        <img id="my-image" src="Pics/buehne.jpeg"/>
+        <img id="boden" src="Pics/Bachlauf.jpg"/>
+
+        <!--Lakitu-->
+        <a-asset-item id="Lak-obj" src="Objekte/Lakitu.obj"></a-asset-item>
+        <a-asset-item id="Lak-mtl" src="Objekte/Lakitu.mtl"></a-asset-item>
+
+        <!--Video-->
+        <video id="textvideo" src="Video/text.webm" autoplay="false" webkit-playsinline/>
+
+    </a-assets>
+    <a-image src="#boden" material="color:#FFF;shader:flat;side:double;transparent:true;src:#boden" geometry="primitive:plane" position="0.02 0.01 -0.18" rotation="-90 0 0" scale="16.529999999999998 12.43 12.43"></a-image>
+    animation__walk2="property:position;delay:9000;to:22.50 0 12.77;dur:10000"
+    animation__rotate2="property:rotation;delay:11000;to:0 -53.86 0;dur:13000"
+    animation__walk3="property:position;delay:14000;to:18.77 0.25 11.15;dur:15000"
+    scale="0.17 0.17 0.17"
+    position="-5.75 7.02 4.42"
+    animation__walk="property:position;delay:3000;to:22.50 0 7.37;dur:6000"
+    animation__rotate="property:rotation;delay: 7000; to:0 30.37 0"
+    animation__walk2="property:position;delay: 9000;to:22.50 0 12.77; dur:6000"
+    animation__rotate2="property:rotation;to:0 -53.86 0"
+    animation__walk3="property:position;to:18.77 0.25 11.15"
+    rotation="0 112.87268564077218 0"
+    material="">
+    <!--Camera-->
+    <a-entity id="camera" position=0 5.8 0>
+        <a-entity camera
+                  universal-controls
+                  look-controls=""
+                  kinematic-body position="0 3.95 10.95">
+            <a-entity id="cursor"
+                      cursor="fuse: true; fuseTimeout:2500"
+                      position="0 0 -1"
+                      geometry="primitive: ring"
+                      scale="0.04 0.04 0.04"
+                      material="color: lime">
+                <!-- on .clickable"
+                <a-animation begin="clickableFound" easing="ease-in" attribute="scale"
+                             fill="backwards" from="0.04 0.04 0.04" to="0.01 0.01 0.01" dur="2500"></a-animation>
+                <a-animation begin="clickableClick" easing="ease-in" attribute="scale"
+                             fill="forwards" from="0.01 0.01 0.01" to="0.06 0.06 0.06" dur="1000"></a-animation>
+                <a-animation begin="clickableClick" easing="ease-in" attribute="material.color" to="black"></a-animation>
+                <a-animation begin="notClickable" easing="ease-in" attribute="scale"
+                             fill="forwards" to="0.04 0.04 0.04"></a-animation>
+                <a-animation begin="clickableClick" easing="ease-in" attribute="material.color" to="white" delay="1000"></a-animation>-->
+            </a-entity>
+        </a-entity>
+    </a-entity>
+
+    <!--Bühne-->
+        <a-image src="#my-image" width="16" height="9" material="color:#FFF;shader:flat;side:double;transparent:true;src:#my-image" geometry="primitive:plane;width:16;height:9" position="0 3.8 -5.88" scale="1 1 1"></a-image>
+        <!--Boden-->
+        <a-image src="#boden" material="color:#FFF;shader:flat;side:double;transparent:true;src:#boden"
+                 geometry="primitive:plane" position="0.02 0.01 -0.18" rotation="-90 0 0"
+                 scale="16.529999999999998 12.43 12.43"></a-image>
+
+
+    <a-entity obj-model="obj:#Lak-obj" id="Lakitu" position="0 1.71 0" material="" scale="1 1 1">
+        <a-animation begin="click" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
+    </a-entity>
+
+    <a-video src="#textvideo" opacity="1" width="16" height="9" position="-4.3 3.77 -5.56" material="color:#FFF;shader:flat;side:double;transparent:true;src:#textvideo;opacity:1" geometry="primitive:plane;width:16;height:9" scale="0.4 0.4 0.4">
+
+    </a-video>
+
+</a-scene>
+Wario
+animation__walk="property:position;delay:3000;to:23.82 0.75 5.95;dur:6000"
+animation__rotate="property:rotation;delay:4000;to:4.01 -18.91 -4.01;dur:7600"
+animation__walk2="property:position;delay:5000;from:23.82 0.75 5.95;to:26.13 0.75 13.63;dur:6000"
+animation__rotate2="property:rotation;delay:6000;to:4.01 -112.30 -4.01;dur:7600"
+animation__walk3="property:position;delay:7000;to:18.68 0.75 13.63;dur:6000"
+rotation="4.010704565915763 45.836623610465864 -4.010704565915763"
+
+Luigi
+animation__walk="property:position;delay:3000;to:24.67 0.25 4.63;dur:6000"
+animation__rotate="property:rotation;delay:4000;to:0 -10.31 0;dur:7600"
+animation__walk2="property:position;delay:7000;to:24.67 0.25 11.15;dur:6000"
+animation__rotate2="property:rotation;delay:10000;to:0 -106.57 0;dur:7600"
+animation__walk3="property:position;delay:12000;to:15.40 0 11.53;dur:6000"
+
+Yoshi
+animation__jump="property:position;dir:alternate;dur:200;easing:easeInSine;loop:false;to:2.63 0.53 10.66;delay:9000"
+animation__forward="property:position;dir:non-alternate;dur:200;easing:easeInSine;loop:false;to:2.63 0 8.54;delay:10000"
+</body>
+
+
+</html>
